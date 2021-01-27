@@ -56,7 +56,7 @@ export class AccountEntity {
     lastModificationApp?: string;
     oboAssertion?: string;
     cloudGraphHostName?: string;
-    msGraphHost?: string; 
+    msGraphHost?: string;
     idTokenClaims?: TokenClaims;
 
     /**
@@ -159,7 +159,7 @@ export class AccountEntity {
         // non AAD scenarios can have empty realm
         account.realm = idToken?.claims?.tid || "";
         account.oboAssertion = oboAssertion;
-        
+
         if (idToken) {
             account.idTokenClaims = idToken.claims;
 
@@ -279,14 +279,14 @@ export class AccountEntity {
     /**
      * Helper function to determine whether 2 accounts are equal
      * Used to avoid unnecessary state updates
-     * @param arrayA 
-     * @param arrayB 
+     * @param arrayA
+     * @param arrayB
      */
     static accountInfoIsEqual(accountA: AccountInfo | null, accountB: AccountInfo | null): boolean {
         if (!accountA || !accountB) {
             return false;
         }
-        return (accountA.homeAccountId === accountB.homeAccountId) && 
+        return (accountA.homeAccountId === accountB.homeAccountId) &&
             (accountA.localAccountId === accountB.localAccountId) &&
             (accountA.username === accountB.username) &&
             (accountA.tenantId === accountB.tenantId) &&

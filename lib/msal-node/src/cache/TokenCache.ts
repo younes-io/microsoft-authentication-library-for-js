@@ -164,6 +164,15 @@ export class TokenCache implements ISerializableTokenCache, ITokenCache {
     }
 
     /**
+     * experimental for now
+     * @param account
+     */
+    removeAccountByAccountInfo(account: AccountInfo): void {
+        this.logger.verbose("removeAccount called");
+        this.storage.removeAccountByAccountInfo(account);
+    }
+
+    /**
      * Called when the cache has changed state.
      */
     private handleChangeEvent() {

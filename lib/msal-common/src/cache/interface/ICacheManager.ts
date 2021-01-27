@@ -116,13 +116,13 @@ export interface ICacheManager {
 
     /**
      * Provide an alias to find a matching AuthorityMetadataEntity in cache
-     * @param host 
+     * @param host
      */
     getAuthorityMetadataByAlias(host: string): AuthorityMetadataEntity | null;
 
     /**
      * given an authority generates the cache key for authorityMetadata
-     * @param authority 
+     * @param authority
      */
     generateAuthorityMetadataCacheKey(authority: string): string;
 

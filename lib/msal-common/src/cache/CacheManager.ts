@@ -115,7 +115,7 @@ export abstract class CacheManager implements ICacheManager {
     abstract getAuthorityMetadata(key: string): AuthorityMetadataEntity | null;
 
     /**
-     * 
+     *
      */
     abstract getAuthorityMetadataKeys(): Array<string>;
 
@@ -180,7 +180,7 @@ export abstract class CacheManager implements ICacheManager {
                 }
 
                 return accountInfo;
-                
+
             });
             return allAccounts;
         }
@@ -489,7 +489,7 @@ export abstract class CacheManager implements ICacheManager {
             matchedEntity = entity;
 
         });
-        
+
         return matchedEntity;
     }
 
@@ -505,6 +505,35 @@ export abstract class CacheManager implements ICacheManager {
             }
             this.removeAccount(cacheKey);
         });
+
+        return true;
+    }
+
+    /**
+     * returns a boolean if the given account is removed
+     * @param accountInfo
+     */
+    removeAccountByAccountInfo(accountInfo: AccountInfo): boolean {
+        const authorityMetadata = this.getAuthorityMetadataByAlias(accountInfo.environment);
+        if (authorityMetadata) {
+            const accountInfoAliases = authorityMetadata?.aliases.map((alias) => {
+                const tAccountInfo: AccountInfo = Object.create(accountInfo);
+                tAccountInfo.environment = alias;
+                return tAccountInfo;
+            });
+            const accountKeys = accountInfoAliases.map((key) => AccountEntity.generateAccountCacheKey(key));
+
+            console.log("accountInfoAliases", accountInfoAliases);
+            console.log("accountKeys", accountKeys);
+        }
+
+        /*
+         * const account = this.getAccount(accountKey);
+         * if (!account) {
+         *     throw ClientAuthError.createNoAccountFoundError();
+         * }
+         * return (this.removeAccountContext(account) && this.removeItem(accountKey, CacheSchemaType.ACCOUNT));
+         */
 
         return true;
     }

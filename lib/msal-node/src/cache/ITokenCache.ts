@@ -9,4 +9,5 @@ export interface ITokenCache {
     getAccountByHomeId(homeAccountId: string): Promise<AccountInfo | null>;
     getAccountByLocalId(localAccountId: string): Promise<AccountInfo | null>;
     removeAccount(account: AccountInfo): Promise<void>;
+    removeAccountByAccountInfo(account: AccountInfo): void;
 }
