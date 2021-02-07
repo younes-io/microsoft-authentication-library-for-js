@@ -274,3 +274,5 @@ samples/**/data/cache.json
 samples/**/data/testCache.json
 samples/**/dist/
 .env
+ref/
+.server.pid
