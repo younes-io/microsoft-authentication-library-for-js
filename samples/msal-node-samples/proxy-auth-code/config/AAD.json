@@ -1,0 +1,22 @@
+{
+    "authOptions":
+        {
+            "clientId": "729224d2-4a64-4095-9f53-2b11d18a0e60",
+            "authority": "https://login.windows-ppe.net/common/"
+        },
+    "request":
+    {
+        "authCodeUrlParameters": {
+            "scopes": ["user.read"],
+            "redirectUri": "http://localhost:3000/redirect"
+        },
+        "tokenRequest": {
+            "redirectUri": "http://localhost:3000/redirect",
+            "scopes": ["user.read"]
+        }
+    },
+    "resourceApi":
+    {
+        "endpoint": "https://graph.microsoft.com/v1.0/me"
+    }
+}
