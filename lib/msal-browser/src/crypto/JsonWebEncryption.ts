@@ -61,7 +61,7 @@ export class JsonWebEncryption {
     get protectedHeader(): JoseHeader {
         return this.header;
     }
-
+    
     getAuthenticatedData(str: string): Uint8Array {
         const length = str.length;
         const data = new Uint8Array(length);
